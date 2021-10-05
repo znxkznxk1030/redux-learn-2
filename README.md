@@ -345,8 +345,6 @@ export default connect(mapStateToProps)(BookList)
 // actions/index.js
 
 export function selectBook(book) {
-    // selectBook is an ActionCreator, it needs to return an action,
-    // an object with a type property.
     return {
         type: 'BOOK_SELECTED',
         payload: book
@@ -364,9 +362,6 @@ import { bindActionCreators } from 'redux'
 import { selectBook } from '../actions'
 
 function mapDispatchToProps(dispatch) {
-  // Whenever selectBook is called, the result should be passed
-  // to all of our reducers
-
   return bindActionCreators({ selectBook }, dispatch)
 }
 
@@ -378,7 +373,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(BookList)
 * 리듀서 안에선 절대 state를 직접 변환시키면 안된다.
 
 ```javascript
-// State argument is not application state, only the state
+// reducers/activeBook.js
 export default function(state = null, action) {
     switch (action.type) {
         case 'BOOK_SELECTED':
@@ -388,6 +383,22 @@ export default function(state = null, action) {
     return state
 }
 ```
+
+```javascript
+// reducers/index.js
+import { combineReducers } from 'redux'
+
+import BooksReducer from './reducer-books'
+import ActiveBook from './reducer-active-book'
+
+const rootReducer = combineReducers({
+  books: BooksReducer,
+  activeBook: ActiveBook,
+})
+
+export default rootReducer
+```
+
 
 4. 상태를 props로 가져오기
 
@@ -418,3 +429,7 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps)(BookDetail)
 
 ```
+
+### Day - 10
+
+
