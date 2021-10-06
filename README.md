@@ -4,9 +4,9 @@ Interested in learning [Redux](https://www.udemy.com/react-redux/)?
 
 ### Day - 1
 
-#### ?占쏙옙占 �? js ?占쏙옙?占쏙옙?占쏙옙 webpack ?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙 jsx 泥섎읆 ?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙 ?占쏙옙?占쏙옙
+#### 일반 js 파일도 webpack 설정에 의해 jsx처럼 사용할 수 있다
 
-#### jsx?占쏙옙?占쏙옙?占쏙옙 <div></div>
+#### jsx에서의 <div></div>
 
 ```html
 <div>Hi</div>
@@ -16,54 +16,55 @@ Interested in learning [Redux](https://www.udemy.com/react-redux/)?
 React.createElement('div', null, 'Hi')
 ```
 
-#### jsx?占쏙옙?占쏙옙 App ?占쏙옙?占쏙옙?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙占 �?
+#### jsx에서 App 인스턴스화 시키기
 
-#### jsx ?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙??? 媛숈씠占 �? ?占쏙옙?占쏙옙?占쏙옙占 �?
+#### jsx 에서 아래와 같이만 선언하면
 
 ```javascript
-const App = function () {
-  return <div> Hi </div>
-}
+const App = function() {
+        return <div > Hi < /div>
+    }
 
-;<App />
+    <
+    App / >
 ```
 
-#### javascipt?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙占 �? 媛숇떎
+#### javascipt에서 다음과 같다
 
 ```javascript
-'use strict'
+"use strict";
 
-const App = function () {
-  return /*#__PURE__*/ React.createElement('div', null, 'Hi')
-}
+const App = function() {
+    return /*#__PURE__*/ React.createElement("div", null, "Hi");
+};
 
 /*#__PURE__*/
-React.createElement(App, null)
+React.createElement(App, null);
 ```
 
-#### 留덌옙??留됱뿉 ?占쏙옙?占쏙옙?占쏙옙 React 占 �? ?占쏙옙?占쏙옙?占쏙옙 ReactDOM?占쏙옙 ?占쏙옙?占쏙옙?占쏙옙?占쏙옙.
+#### 마지막에 렌더는 React가 아니라 ReactDOM을 이용한다.
 
 ```jsx
-import ReactDOM from 'react-dom'
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<App />)
+ReactDOM.render( < App /> )
 ```
 
 ### Day - 2
 
-#### ???占 �? ?占쏙옙?占쏙옙占 �?
+#### 타겟 렌더링
 
 ```jsx
-import ReactDOM from 'react-dom'
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<App />, /* ???占�? */ document.querySelector('.container'))
+ReactDOM.render( < App /> , /* 타겟 */ document.querySelector('.container'));
 ```
 
-#### 援 э옙?? API 肄섏넄
+#### 구글 API 콘솔
 
 > https://console.cloud.google.com/home/dashboard?project=friendlychat-9446c
 
-#### export 占 �??占쏙옙?占쏙옙嫄곕뒗 ?占쏙옙由꾩엳?占쏙옙 媛믪씠?占쏙옙 default ( #### ?占쏙옙湲곤옙?? 媛숋옙?? 臾몄옣??? ?占쏙옙?占쏙옙?占쏙옙. \*)
+#### export 가능한거는 이름있는 값이나 default ( #### 하기와 같은 문장은 안된다. *)
 
 ```javascript
 // error
@@ -72,32 +73,35 @@ export {
 }
 ```
 
-#### jsx 占 �? 媛꾨왂?占쏙옙 ?占쏙옙?占쏙옙?占쏙옙?占쏙옙 React 占 �? ?占쏙옙?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙耳쒖빞?占쏙옙?占쏙옙.
+#### jsx가 간략화 하더라도 React를 임포트는 시켜야한다.
 
 ```jsx
 import React from 'react'
-;<input /> // React.createElement('input', null);
+
+<input /> // React.createElement('input', null);
 ```
 
 ### Day - 3
 
-#### ?占쏙옙?占쏙옙?占쏙옙 而댄룷?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙占 �??占쏙옙?占쏙옙 ?占쏙옙蹂댐옙?? ????占쏙옙?占쏙옙?占쏙옙占 �? ?占쏙옙 ?占쏙옙 ?占쏙옙?占쏙옙?占쏙옙?占쏙옙.
+#### 클래스 컴포넌트는 내부적인 정보를 저장하려고 할 때 사용한다.
 
-#### import?占쏙옙 default ??? destructure ?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙占 �?
+#### import시 default 와 destructure 동시에 하기
 
 ```jsx
-import React, { Component } from 'react'
+import React, {
+    Component
+} from 'react'
 ```
 
-#### jsx?占쏙옙?占쏙옙 html ?占쏙옙?占쏙옙 ?占쏙옙踰ㅽ듃 ?占쏙옙?占쏙옙占 �? ?占쏙옙占 �?
+#### jsx에서 html 내장 이벤트 핸들링 하기
 
 > on + {EventName}
 
 ```jsx
-<input onChange={console.log} onClick={console.log} />
+<input onChange={ console.log } onClick={ console.log } />
 ```
 
-#### 紐 ⑤뱺 而댄룷?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙占 �? ?占쏙옙占 �?, ?占쏙옙?占쏙옙占 �? 占 �??占쏙옙占 �? ?占쏙옙?占쏙옙占 �? ?占쏙옙?占쏙옙?占쏙옙?占쏙옙 render 占 �? 媛뺤젣?占쏙옙?占쏙옙.
+#### 모든 컴포넌트는 상태가 있고, 상태가 변하면 자신과 자식들의 render를 강제한다.
 
 ```jsx
 render() {
@@ -111,7 +115,7 @@ render() {
     }
 ```
 
-#### ?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙?占쏙옙 諛섎뱶?占쏙옙 constructor?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙?占쏙옙?占쏙옙
+#### 상태 선언시 반드시 constructor안에서 해야한다
 
 ```jsx
 constructor(props) {
@@ -120,7 +124,7 @@ constructor(props) {
     }
 ```
 
-#### ?占쏙옙?占쏙옙 占 �?寃쎌떆 諛섎뱶?占쏙옙 this.setState 占 �? ?占쏙옙?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙.
+#### 상태 변경시 반드시 this.setState를 이용해야 한다.
 
 ```jsx
  render() {
@@ -130,89 +134,105 @@ constructor(props) {
 
 ### Day - 4
 
-#### ???占 �?遺꾩쓽 寃쎌슦 ?占쏙옙蹂댐옙?? ?占쏙옙占 �??占쏙옙?占쏙옙 ?占쏙옙?占쏙옙 占 �?占 �? 而댄룷?占쏙옙?占쏙옙占 �? ?占쏙옙占 �? 占 �??占쏙옙?占쏙옙 沅뚮━ 占 �? 占 �?占 �?占 �? ?占쏙옙?占쏙옙.
+#### 대부분의 경우 정보와 연관되어 있는 부모 컴포넌트가 이를 가져올 권리를 가지고 있다.
 
-#### Prettier ?占쏙옙?占쏙옙
+#### Prettier 적용
 
-.pritterrc 異뷂옙??
+.pritterrc 추가
 
 ```json
 {}
 ```
 
-package.json ?占쏙옙 ?占쏙옙?占쏙옙由쏀듃 異뷂옙??
+package.json 에 스크립트 추가
 
 ```json
 "format": "prettier \"src/**/*.{js,html,jsx}\" --write"
 ```
 
-#### props ?占쏙옙湲곌린
+#### props 넘기기
 
 ```jsx
 <VideoList videos={this.state.videos}></VideoList>
 ```
 
-#### props 諛쏄린 ( ?占쏙옙?占쏙옙?占쏙옙 )
+#### props 받기 ( 함수형 )
 
 ```jsx
 const VideoList = (props) => {
-  return <ul className="col-md-4 list-group">{props.videos.length}</ul>
-}
+  return <ul className="col-md-4 list-group">
+      {props.videos.length}
+    </ul>;
+};
 ```
 
-#### react for 占 �?
+#### react for문
 
-- key 媛믪쓣 ?占쏙옙?占쏙옙?占쏙옙占 �? ?占쏙옙由 ъ튂?占쏙옙 議곗떖?占쏙옙?占쏙옙
+* key값을 누락하면 난리치니 조심하자
 
 ```jsx
 const videoItems = props.videos.map((video) => {
-  return <VideoListItem key={video.etag} video={video} />
-})
-
-return <ul className="col-md-4 list-group">{videoItems}</ul>
+    return <VideoListItem key={video.etag} video={video} />;
+  });
+  
+  return <ul className="col-md-4 list-group">{videoItems}</ul>;
 ```
 
 ### Day - 5
 
-#### jsx ?占쏙옙?占쏙옙 class????占쏙옙 諛섎뱶?占쏙옙 className?占쏙옙?占쏙옙占 �? ?占쏙옙?占쏙옙
+#### jsx 에선 class대신 반드시 className이라고 사용
 
-#### decontructor 占 �? props 遺꾪빐
-
-```jsx
-const VideoDetail = ({ video }) => {}
-```
-
-#### iframe?占쏙옙 src 媛숋옙?? native ?占쏙옙?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙占 �??占쏙옙
+#### decontructor로 props분해
 
 ```jsx
-<iframe src={url} frameborder="0" className="embed-responsive-item"></iframe>
-```
-
-#### props?占쏙옙 null/undefined 占 �? 泥섎━
-
-```jsx
-if (!video) {
-  return <div>Loading...</div>
+const VideoDetail = ({video}) => {
+    
 }
 ```
 
-#### embed?占쏙옙 ?占쏙옙?占쏙옙?占쏙옙 醫뗰옙?? ratio 16:9 ( bootstrap ?占쏙옙?占쏙옙 )
+#### iframe의 src같은 native 속성들도 사용가능
 
 ```jsx
-<div className="embed-responsive embed-responsive-16by9">
-  <iframe src={url} className="embed-responsive-item"></iframe>
-</div>
+<iframe
+  src={url}
+  frameborder="0"
+  className="embed-responsive-item"
+></iframe>
 ```
 
-洹몄쇅
+#### props의 null/undefined 값 처리
+
+```jsx
+  if (!video) {
+      return <div>Loading...</div>
+  }
+```
+
+#### embed된 요소의 좋은 ratio 16:9 ( bootstrap 피셜 )
+
+```jsx
+      <div className="embed-responsive embed-responsive-16by9">
+        <iframe
+          src={url}
+          className="embed-responsive-item"
+        ></iframe>
+      </div>
+```
+
+그외
 
 ```scss
-$embed-responsive-aspect-ratios: ((21 9), (16 9), (4 3), (1 1)) !default;
+$embed-responsive-aspect-ratios: (
+  (21 9),
+  (16 9),
+  (4 3),
+  (1 1)
+) !default;
 ```
 
 ### Day - 6
 
-#### ?占쏙옙?占쏙옙 ?占쏙옙踰ㅽ듃 諛쏄린 - props 占 �? 肄쒕갚 ?占쏙옙?占쏙옙 ?占쏙옙寃 ⑨옙???占쏙옙
+#### 자식 이벤트 받기 - props로 콜백 함수 넘겨준다
 
 ```jsx
 // parent
@@ -254,38 +274,38 @@ videoSearch(term) {
 
 ```
 
-#### debounce ?占쏙옙?占쏙옙?占쏙옙占 �?
+#### debounce 적용하기
 
 ```javascript
 const videoSearch = _.debounce((term) => {
-  this.videoSearch(term)
+    this.videoSearch(term)
 }, 300)
 ```
 
 ### Day - 7
 
-#### Redux 占 �? ?占쏙옙占 �? flux ?占쏙옙?占쏙옙?占쏙옙?占쏙옙?占쏙옙??? ?占쏙옙瑜몄젏
+####  Redux가 다른 flux 프레임워크와 다른점
 
-- backbone??? collections 占 �? 占 �?占 �?占 �?, flux?占쏙옙 ?占쏙옙占 �? store?占쏙옙?占쏙옙 占 �?占 �?怨좎엳?占쏙옙?占쏙옙 諛섑빐 Redux?占쏙옙 state 占 �? 李몄“?占쏙옙?占쏙옙 ?占쏙옙 ?占쏙옙釉뚯젥?占쏙옙占 �? 吏묒쨷?占쏙옙?占쏙옙?占쏙옙.
+* backbone은 collections를 가지고, flux는 다른 store들을 가지고있는데 반해 Redux는 state를 참조하는 한 오브젝트로 집중시킨다.
 
-#### Reducer ??? ?占쏙옙?占쏙옙由 э옙???占쏙옙?占쏙옙 ?占쏙옙?占쏙옙?占쏙옙?占쏙옙占 �? 諛섑솚?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙
+#### Reducer 란 어플리케이션 스테이트를 반환하는 함수
 
-#### Reducer?占쏙옙 ?占쏙옙 ?占쏙옙?占쏙옙
+#### Reducer의 두 스텝
 
-1. 由 э옙???占쏙옙 留뚮뱾占 �?
-2. ?占쏙옙占 �? ?占쏙옙寃고븯占 �?
+1. 리듀서 만들기
+2. 앱과 연결하기
 
 ### Day - 8
 
 #### react-redux
 
-由 ъ븸?占쏙옙??? 由 щ뜒?占쏙옙?占쏙옙 ????占쏙옙 ?占쏙옙?占쏙옙釉뚮윭占 �?
+리액트와 리덕스에 대한 라이브러리
 
 #### Container
 
-由 ъ븸?占쏙옙 而댄룷?占쏙옙?占쏙옙濡쒖꽌, 由 щ뜒?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙 占 �?由 щ릺?占쏙옙 ?占쏙옙?占쏙옙?占쏙옙?占쏙옙?占쏙옙 吏곸젒?占쏙옙?占쏙옙 ?占쏙옙寃곗씠 占 �??占쏙옙
+리액트 컴포넌트로서, 리덕스에 의해 관리되는 스테이트에 직접적인 연결이 가능
 
-#### prettierrc ?占쏙옙?占쏙옙
+#### prettierrc 설정
 
 ```json
 {
@@ -296,43 +316,45 @@ const videoSearch = _.debounce((term) => {
 }
 ```
 
-#### Component 占 �? Container 占 �? 留뚮뱾占 �?
+#### Component를 Container로 만들기
 
-1. mapStateToProps ?占쏙옙?占쏙옙
+1. mapStateToProps 생성
 
 ```jsx
-function mapStateToProps(state) {
-  return {
-    books: state.books,
-  }
+function mapStateToProps (state) {
+    return {
+        books: state.books
+    }
 }
 ```
 
-2. connect 占 �? 占 �??占쏙옙?占쏙옙占 �? ( currying 援 ъ“?占쏙옙?占쏙옙.)
+2. connect로 변환하기 ( currying 구조이다.)
 
 ```jsx
-// connect?占쏙옙 currying?占쏙옙 ?占쏙옙?占쏙옙?占쏙옙?占쏙옙
+// connect는 currying을 사용한다
 export default connect(mapStateToProps)(BookList)
 ```
 
 ### Day - 9
 
-#### 由 щ뜒?占쏙옙 ?占쏙옙?占쏙옙 ?占쏙옙寃고븯占 �?
+#### 리덕스 액션 연결하기
 
-1. ActionCreator 留뚮뱾占 �?
+1. ActionCreator 만들기
 
 ```javascript
 // actions/index.js
 
 export function selectBook(book) {
-  return {
-    type: 'BOOK_SELECTED',
-    payload: book,
-  }
+    // selectBook is an ActionCreator, it needs to return an action,
+    // an object with a type property.
+    return {
+        type: 'BOOK_SELECTED',
+        payload: book
+    }
 }
 ```
 
-2. ActionCreator?占쏙옙 Props 占 �? 諛붿씤?占쏙옙 ?占쏙옙占 �?
+2. ActionCreator을 Props로 바인딩 하기
 
 ```jsx
 // containers/book-list.js
@@ -342,44 +364,32 @@ import { bindActionCreators } from 'redux'
 import { selectBook } from '../actions'
 
 function mapDispatchToProps(dispatch) {
+  // Whenever selectBook is called, the result should be passed
+  // to all of our reducers
+
   return bindActionCreators({ selectBook }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookList)
 ```
 
-3. Reducer 留뚮뱾占 �?
+3. Reducer 만들기
 
-- 由 э옙???占쏙옙 ?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙??? state 占 �? 吏곸젒 占 �??占쏙옙?占쏙옙?占쏙옙占 �? ?占쏙옙?占쏙옙?占쏙옙.
+* 리듀서 안에선 절대 state를 직접 변환시키면 안된다.
 
 ```javascript
-// reducers/activeBook.js
-export default function (state = null, action) {
-  switch (action.type) {
-    case 'BOOK_SELECTED':
-      return action.payload
-  }
+// State argument is not application state, only the state
+export default function(state = null, action) {
+    switch (action.type) {
+        case 'BOOK_SELECTED':
+            return action.payload
+    }
 
-  return state
+    return state
 }
 ```
 
-```javascript
-// reducers/index.js
-import { combineReducers } from 'redux'
-
-import BooksReducer from './reducer-books'
-import ActiveBook from './reducer-active-book'
-
-const rootReducer = combineReducers({
-  books: BooksReducer,
-  activeBook: ActiveBook,
-})
-
-export default rootReducer
-```
-
-4. ?占쏙옙?占쏙옙占 �? props 占 �? 占 �??占쏙옙?占쏙옙占 �?
+4. 상태를 props로 가져오기
 
 ```jsx
 import React, { Component } from 'react'
@@ -406,7 +416,9 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(BookDetail)
+
 ```
+
 
 ### Day - 10
 
