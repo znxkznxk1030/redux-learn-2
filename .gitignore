@@ -8,4 +8,4 @@ npm-debug.log
 /.idea
 
 # configuration
-./src/config.js
+src/config.js
