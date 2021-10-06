@@ -458,4 +458,6 @@ this.onInputChange = this.onInputChange.bind(this)
 
 #### open weather api e
 
-https://api.openweathermap.org/data/2.5/forecast?q=London,us&mode=json&appid=d677723bda88ec90e787664f56ed62cf
+https://api.openweathermap.org/data/2.5/forecast?q=London,us&mode=json&appid={api_key}
+
+#### redux-promise
