@@ -431,3 +431,19 @@ export default connect(mapStateToProps)(BookDetail)
 ```jsx
 this.onInputChange = this.onInputChange.bind(this)
 ```
+
+#### form tag는 기본적으로 엔터키를 누르거나 내부의 type이 submit인 버튼이 있다면, 페이지를 리로드 한다. ( http://{url}/? )
+
+#### form 의 submit 이벤트 핸들링 하기
+
+```jsx
+  onFormSubmit(event) {
+    event.preventDefault()
+  }
+
+<form onSubmit={this.onFormSubmit} className="input-group">
+```
+
+#### open weather api example
+https://api.openweathermap.org/data/2.5/forecast?q=London,us&mode=json&appid=d677723bda88ec90e787664f56ed62cf
+
