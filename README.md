@@ -461,3 +461,6 @@ this.onInputChange = this.onInputChange.bind(this)
 https://api.openweathermap.org/data/2.5/forecast?q=London,us&mode=json&appid={api_key}
 
 #### redux-promise
+
+### Day - 11
+
