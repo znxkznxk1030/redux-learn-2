@@ -520,9 +520,9 @@ export default function (state = null, action) {
 
 #### 리덕스에서 Array 반환시 Mutation을 피하는 법
 
-state.push보단 state.concat을 쓰자
-push는 기존 배열에다 새원소 추가
-concat은 새로운 배열에가 기존꺼 + 새 원소 추가
+- state.push보단 state.concat 또는 [ ...state , payload ]을 쓰자
+- push는 기존 배열에다 새원소 추가
+- concat은 새로운 배열에가 기존꺼 + 새 원소 추가
 
 ```javascript
 import { FETCH_WEATHER } from '../actions'
