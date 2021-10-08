@@ -483,3 +483,57 @@ export default function (state = null, action) {
   return state
 }
 ```
+
+- Promise 반환 중 에러가 난다면, reducer의 action이 다음과 같다
+
+```json
+{
+  "type": "FETCH_WEATER",
+  "payload": {
+    "message": "Network Error",
+    "name": "Error",
+    "stack": "Error: Network Error\n    at createError (http://localhost:8080/bundle.js:24216:16)\n    at XMLHttpRequest.handleError (http://localhost:8080/bundle.js:24068:15)",
+    "config": {
+      "transitional": {
+        "silentJSONParsing": true,
+        "forcedJSONParsing": true,
+        "clarifyTimeoutError": false
+      },
+      "transformRequest": [null],
+      "transformResponse": [null],
+      "timeout": 0,
+      "xsrfCookieName": "XSRF-TOKEN",
+      "xsrfHeaderName": "X-XSRF-TOKEN",
+      "maxContentLength": -1,
+      "maxBodyLength": -1,
+      "headers": {
+        "Accept": "application/json, text/plain, */*"
+      },
+      "method": "get",
+      "url": "https://api.openweathermp.org/data/2.5/forecast?appid=d677723bda88ec90e787664f56ed62cf&q=London,us"
+    },
+    "status": null
+  },
+  "error": true
+}
+```
+
+#### 리덕스에서 Array 반환시 Mutation을 피하는 법
+
+state.push보단 state.concat을 쓰자
+push는 기존 배열에다 새원소 추가
+concat은 새로운 배열에가 기존꺼 + 새 원소 추가
+
+```javascript
+import { FETCH_WEATHER } from '../actions'
+
+export default function (state = null, action) {
+  console.log('Action: ', action)
+  switch (action.type) {
+    case FETCH_WEATHER:
+      return state.concat([action.payload.data])
+  }
+
+  return state
+}
+```
