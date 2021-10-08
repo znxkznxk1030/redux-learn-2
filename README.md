@@ -21,33 +21,32 @@ React.createElement('div', null, 'Hi')
 #### jsx 에서 아래와 같이만 선언하면
 
 ```javascript
-const App = function() {
-        return <div > Hi < /div>
-    }
+const App = function () {
+  return <div> Hi </div>
+}
 
-    <
-    App / >
+;<App />
 ```
 
 #### javascipt에서 다음과 같다
 
 ```javascript
-"use strict";
+'use strict'
 
-const App = function() {
-    return /*#__PURE__*/ React.createElement("div", null, "Hi");
-};
+const App = function () {
+  return /*#__PURE__*/ React.createElement('div', null, 'Hi')
+}
 
 /*#__PURE__*/
-React.createElement(App, null);
+React.createElement(App, null)
 ```
 
 #### 마지막에 렌더는 React가 아니라 ReactDOM을 이용한다.
 
 ```jsx
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom'
 
-ReactDOM.render( < App /> )
+ReactDOM.render(<App />)
 ```
 
 ### Day - 2
@@ -55,16 +54,16 @@ ReactDOM.render( < App /> )
 #### 타겟 렌더링
 
 ```jsx
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom'
 
-ReactDOM.render( < App /> , /* 타겟 */ document.querySelector('.container'));
+ReactDOM.render(<App />, /* 타겟 */ document.querySelector('.container'))
 ```
 
 #### 구글 API 콘솔
 
 > https://console.cloud.google.com/home/dashboard?project=friendlychat-9446c
 
-#### export 가능한거는 이름있는 값이나 default ( #### 하기와 같은 문장은 안된다. *)
+#### export 가능한거는 이름있는 값이나 default ( #### 하기와 같은 문장은 안된다. \*)
 
 ```javascript
 // error
@@ -77,8 +76,7 @@ export {
 
 ```jsx
 import React from 'react'
-
-<input /> // React.createElement('input', null);
+;<input /> // React.createElement('input', null);
 ```
 
 ### Day - 3
@@ -88,9 +86,7 @@ import React from 'react'
 #### import시 default 와 destructure 동시에 하기
 
 ```jsx
-import React, {
-    Component
-} from 'react'
+import React, { Component } from 'react'
 ```
 
 #### jsx에서 html 내장 이벤트 핸들링 하기
@@ -98,7 +94,7 @@ import React, {
 > on + {EventName}
 
 ```jsx
-<input onChange={ console.log } onClick={ console.log } />
+<input onChange={console.log} onClick={console.log} />
 ```
 
 #### 모든 컴포넌트는 상태가 있고, 상태가 변하면 자신과 자식들의 render를 강제한다.
@@ -160,22 +156,20 @@ package.json 에 스크립트 추가
 
 ```jsx
 const VideoList = (props) => {
-  return <ul className="col-md-4 list-group">
-      {props.videos.length}
-    </ul>;
-};
+  return <ul className="col-md-4 list-group">{props.videos.length}</ul>
+}
 ```
 
 #### react for문
 
-* key값을 누락하면 난리치니 조심하자
+- key값을 누락하면 난리치니 조심하자
 
 ```jsx
 const videoItems = props.videos.map((video) => {
-    return <VideoListItem key={video.etag} video={video} />;
-  });
-  
-  return <ul className="col-md-4 list-group">{videoItems}</ul>;
+  return <VideoListItem key={video.etag} video={video} />
+})
+
+return <ul className="col-md-4 list-group">{videoItems}</ul>
 ```
 
 ### Day - 5
@@ -185,49 +179,35 @@ const videoItems = props.videos.map((video) => {
 #### decontructor로 props분해
 
 ```jsx
-const VideoDetail = ({video}) => {
-    
-}
+const VideoDetail = ({ video }) => {}
 ```
 
 #### iframe의 src같은 native 속성들도 사용가능
 
 ```jsx
-<iframe
-  src={url}
-  frameborder="0"
-  className="embed-responsive-item"
-></iframe>
+<iframe src={url} frameborder="0" className="embed-responsive-item"></iframe>
 ```
 
 #### props의 null/undefined 값 처리
 
 ```jsx
-  if (!video) {
-      return <div>Loading...</div>
-  }
+if (!video) {
+  return <div>Loading...</div>
+}
 ```
 
 #### embed된 요소의 좋은 ratio 16:9 ( bootstrap 피셜 )
 
 ```jsx
-      <div className="embed-responsive embed-responsive-16by9">
-        <iframe
-          src={url}
-          className="embed-responsive-item"
-        ></iframe>
-      </div>
+<div className="embed-responsive embed-responsive-16by9">
+  <iframe src={url} className="embed-responsive-item"></iframe>
+</div>
 ```
 
 그외
 
 ```scss
-$embed-responsive-aspect-ratios: (
-  (21 9),
-  (16 9),
-  (4 3),
-  (1 1)
-) !default;
+$embed-responsive-aspect-ratios: ((21 9), (16 9), (4 3), (1 1)) !default;
 ```
 
 ### Day - 6
@@ -278,15 +258,15 @@ videoSearch(term) {
 
 ```javascript
 const videoSearch = _.debounce((term) => {
-    this.videoSearch(term)
+  this.videoSearch(term)
 }, 300)
 ```
 
 ### Day - 7
 
-####  Redux가 다른 flux 프레임워크와 다른점
+#### Redux가 다른 flux 프레임워크와 다른점
 
-* backbone은 collections를 가지고, flux는 다른 store들을 가지고있는데 반해 Redux는 state를 참조하는 한 오브젝트로 집중시킨다.
+- backbone은 collections를 가지고, flux는 다른 store들을 가지고있는데 반해 Redux는 state를 참조하는 한 오브젝트로 집중시킨다.
 
 #### Reducer 란 어플리케이션 스테이트를 반환하는 함수
 
@@ -321,10 +301,10 @@ const videoSearch = _.debounce((term) => {
 1. mapStateToProps 생성
 
 ```jsx
-function mapStateToProps (state) {
-    return {
-        books: state.books
-    }
+function mapStateToProps(state) {
+  return {
+    books: state.books,
+  }
 }
 ```
 
@@ -345,12 +325,12 @@ export default connect(mapStateToProps)(BookList)
 // actions/index.js
 
 export function selectBook(book) {
-    // selectBook is an ActionCreator, it needs to return an action,
-    // an object with a type property.
-    return {
-        type: 'BOOK_SELECTED',
-        payload: book
-    }
+  // selectBook is an ActionCreator, it needs to return an action,
+  // an object with a type property.
+  return {
+    type: 'BOOK_SELECTED',
+    payload: book,
+  }
 }
 ```
 
@@ -375,17 +355,17 @@ export default connect(mapStateToProps, mapDispatchToProps)(BookList)
 
 3. Reducer 만들기
 
-* 리듀서 안에선 절대 state를 직접 변환시키면 안된다.
+- 리듀서 안에선 절대 state를 직접 변환시키면 안된다.
 
 ```javascript
 // State argument is not application state, only the state
-export default function(state = null, action) {
-    switch (action.type) {
-        case 'BOOK_SELECTED':
-            return action.payload
-    }
+export default function (state = null, action) {
+  switch (action.type) {
+    case 'BOOK_SELECTED':
+      return action.payload
+  }
 
-    return state
+  return state
 }
 ```
 
@@ -416,9 +396,7 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(BookDetail)
-
 ```
-
 
 ### Day - 10
 
@@ -460,7 +438,48 @@ this.onInputChange = this.onInputChange.bind(this)
 
 https://api.openweathermap.org/data/2.5/forecast?q=London,us&mode=json&appid={api_key}
 
-#### redux-promise
-
 ### Day - 11
 
+#### redux-promise 미들웨어 사용
+
+- Action 에서 payload로 Promise객체를 반환
+
+```javascript
+// action/index.jss
+export function fetchWeather(city) {
+  const url = `${ROOT_URL}&q=${city},us`
+  const request = axios.get(url)
+
+  console.log('Request: ', request)
+
+  return {
+    type: FETCH_WEATHER,
+    payload: request,
+  }
+}
+```
+
+- Action에서 Reducer로 넘어가는 사이 redux-promise 미들웨어가 가로챔
+
+```javascript
+// index.js
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)
+
+ReactDOM.render(
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <App />
+  </Provider>,
+  document.querySelector('.container')
+)
+```
+
+- 가로챈 Promise객체는 resolve시킨 결과를 Reducer로 넘겨줌
+
+```javascript
+// reducer/reducer_weathher.js
+export default function (state = null, action) {
+  console.log('Action: ', action)
+
+  return state
+}
+```
