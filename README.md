@@ -557,3 +557,13 @@ export default function (state = null, action) {
   <tbody></tbody>
 </table>
 ```
+
+### react-sparklines 적용하기
+
+- 1.6.0버전에서는 오류가 있으므로 1.7.x버전을 사용하자
+
+```jsx
+<Sparklines data={temperatures} height={120} width={180}>
+  <SparklinesLine color="red" />
+</Sparklines>
+```
