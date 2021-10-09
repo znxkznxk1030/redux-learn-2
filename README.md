@@ -537,3 +537,23 @@ export default function (state = null, action) {
   return state
 }
 ```
+
+### Day - 12
+
+#### table 만들기 ( feat. bootstrap )
+
+- looks pretty good
+
+```jsx
+<table className="table table-hover">
+  <thead>
+    <tr>
+      <th>City</th>
+      <th>Temperature</th>
+      <th>Pressure</th>
+      <th>Humidity</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+```
