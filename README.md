@@ -569,3 +569,9 @@ export default function (state = null, action) {
 ```
 
 ### Day - 13
+
+#### vertical-align
+
+1. inline이나 inline-block 에서만 적용
+2. 요소 자체만 정렬, 내용에 영향 X ( table cell에 적용할 때는 제외)
+3. 다른 요소에 상대적으로 정렬함
