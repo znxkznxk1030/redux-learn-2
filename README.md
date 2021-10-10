@@ -558,7 +558,7 @@ export default function (state = null, action) {
 </table>
 ```
 
-### react-sparklines 적용하기
+#### react-sparklines 적용하기
 
 - 1.6.0버전에서는 오류가 있으므로 1.7.x버전을 사용하자
 
@@ -567,3 +567,5 @@ export default function (state = null, action) {
   <SparklinesLine color="red" />
 </Sparklines>
 ```
+
+### Day - 13
